@@ -157,10 +157,17 @@
       <div class="red-panda">
         <!-- insert picture element -->
         <picture>
-          <source media="(max-width: 600 px)" srcset="modified/red-panda_600.jpg">
-          <source media="(mix-width: 601 px)" srcset="modified/red-panda_1200.jpg">
+          <source media="(max-width: 600px)" srcset="modified/red-panda_600.jpg">
+          <source media="(min-width: 601px)" srcset="modified/red-panda_1200.jpg">
           <img src="modified/red-panda_1200.jpg">
         </picture>
+
+        <!-- <picture>
+          <source media="(max-width: 799px)" srcset="modified/red-panda_600.jpg">
+          <source media="(min-width: 800px)" srcset="modified/red-panda_1200.jpg">
+          <img src="modified/red-panda_1200.jpg"Chris standing up holding his daughter Elva">
+        </picture>
+         -->
       </div>
 
     </main>
