@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Timestamper
+title: Timestamper Privacy Policy
 permalink: /timestamper/
 ---
 
