@@ -12,8 +12,8 @@ If you're also interested, I'm planning on releasing the app on the Google Play 
 
 ## How to sign up
 1. Join the google group: [https://groups.google.com/g/timestamper-app-test](https://groups.google.com/g/timestamper-app-test)
-2. Opt-in to the test: [https://play.google.com/apps/testing/com.hai265.timestamper](https://groups.google.com/g/timestamper-app-test)
-3. Download the app:  [https://play.google.com/store/apps/details?id=com.hai265.timestamper](https://groups.google.com/g/timestamper-app-test)
+2. Opt-in to the test: [https://play.google.com/apps/testing/com.hai265.timestamper](https://play.google.com/apps/testing/com.hai265.timestamper)
+3. Download the app:  [https://play.google.com/store/apps/details?id=com.hai265.timestamper]( https://play.google.com/store/apps/details?id=com.hai265.timestamper)
 
 You can check out the github repo if you wish. [https://github.com/hai265/Android-Youtube-Timestamps](https://github.com/hai265/Android-Youtube-Timestamps)
 

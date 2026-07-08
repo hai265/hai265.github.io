@@ -159,6 +159,9 @@ It's a little annoying if you have multiple styles, since you have to add and ap
 
 Once you're done, you now have a subtitled video!
 
+## 6. Misc
+For thumbnails, I use [Umaviewer](https://github.com/katboi01/UmaViewer) for custom Uma poses and [Affinity Photo](https://www.affinity.studio/photo-editing-software) for photo editing.
+
 ## Resources
 * Timestamper App: [https://github.com/hai265/Android-Youtube-Timestamps](https://github.com/hai265/Android-Youtube-Timestamps)
 * Aegisub: [https://aegisub.org/](https://aegisub.org/)
