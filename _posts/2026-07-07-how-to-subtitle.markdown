@@ -1,15 +1,18 @@
 ---
 layout: post
-title:  "How to clip and subtitle"
+title:  "How to Clip and Subtitle Videos"
 date:   2026-07-03 09:42:21 -0400
 categories: jekyll update
 ---
+
+| ![space-1.jpg]({{site.baseurl}}/images/subtitle-example.png) | 
+|:--:| 
+| *One of my subbed videos* |
+
 # Background
-My first exposure to subbed videos was from getting addicted to Hololive back in 2020. During that time, there was an explosion of english-subtitled clips. I've always wanted to become a clipper, since I took Japanese back in college, but I never actually knew how to to create those clips now. Eventually I stopped watching Hololive, and with that, I also stopped watching those clips as well.
+I found it really weird that there's not that many guides on how to create subtitles using video editing software (the ones that do exist are just for ai generating subtitles).
 
-Fast forward to June, 2025, when the global version of Umamusume was released. I was immediately hooked into the game, and while browsing youtube, I stumbled along the Umamusume characters playing Poppy Playtime. This introduced me to whole treasure trove of umas playing games, something that I'm still trying to work through to this day.
-
-Anyways, I found it odd that there weren't that many translated clips of these videos (shout out to [moe tabibito](https://www.youtube.com/@moedakeikiru/videos) for being one of the earliest ones). I enjoyed watching these videos, so I'd figured that others would too and that I could take a crack at translating and subtitling. After watching various guides and experimenting with various tools, I landed on this decent workflow for my videos.
+I pretty much had to research this myself, and after a while I've landed on this workflow.
 
 
 # Guide
@@ -33,7 +36,16 @@ After downloading the video, open the video in whatever video editing program yo
 I use my timestamped notes I took in step #1 to create a rough cut on the video and identify parts that I want to actually subtitle.
 
 ## 4. Create the subtitles
+
+| ![space-1.jpg]({{site.baseurl}}/images/aegisub.png) | 
+|:--:| 
+| *aegisub in action* |
+
 To create the actual subtitles, I use a program called [Aegisub](https://aegisub.org/). The program includes handy tools like hotkeys, an audio visualizer, and dictionary to make creating subtitles easier. [There's a handy youtube playlist tutorial here](https://youtu.be/4gXF6Y-v6BE?si=sQ7qJTmb0Tssz4eF).
+
+Aegisub is nice because you can configure shortcuts to make adding subtitles fast. It also includes an audio spectrum display which makes distinguishing speakers much easier than normal audio waveforms.
+
+Additionally, you can generate subtitles from your cut down video in the previous step and import them to Aegisub to make timing subtitles easier. I use a [desktop GUI for Whisper](https://github.com/mehtabmahir/easy-whisper-ui) since it can run on my mac.
 
 ## 5. Include the subtitles in the video
 Once you have your subtitles timed and ready, there are two ways to include those subtitles in the video.
@@ -48,7 +60,11 @@ Once you have your subtitles timed and ready, there are two ways to include thos
 
 ## 5a. Burn in the subtitles
 Once you have your subtitles timed and ready, you can burn the subtitles in the video using `ffmpeg`. Here's a sample command:
-```ffmpeg -i prores.mov -c:v libx265 -crf 22 -vf subtitles="subtitles.ass" finalh265.mkv```
+
+```
+ffmpeg -i prores.mov -c:v libx265 -crf 22 -vf subtitles="subtitles.ass" finalh265.mkv
+```
+
 The output video file will now contain the subtitles you created in step #4.
 ## 5b. Export the subtitles to Davinci Resolve
 Davinci resolve only supports `.srt` subtitle, while Aegisub files are in the `.ass` format. I've created a handy python script to convert `.ass` subtitles to individual `.srt` files according to their style.
@@ -129,6 +145,11 @@ if __name__ == "__main__":
 For example, if you had two styles, say `Gold Ship` and `Special Week`, they'll be split into `Gold_Ship.srt` and `Special Week.srt`, and then you can individually import them into Davinci Resolve.
 
 ## 6. Final Edits
+
+| ![space-1.jpg]({{site.baseurl}}/images/davinci.png) | 
+|:--:| 
+| *the same scene above but subs styled in Davinci Resolve* |
+
 In this step I make my final edits, like adding images and applying transitions and video effects.
 
 If you decided to create `.srt` subtitles instead, then you would need to convert the subtitle files into `Text+` nodes so you can apply styling. I use the [Snap Captions](https://orsonlord.com/snap-caption-help-guides/snap-captions-help-database/snap-captions-install-guide) script to achieve this.

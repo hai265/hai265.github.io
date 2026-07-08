@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Timestamper App"
+title:  "Timestamper App Beta"
 date:   2026-07-03 09:42:21 -0400
 categories: jekyll update
 ---
