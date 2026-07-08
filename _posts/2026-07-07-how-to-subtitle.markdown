@@ -20,6 +20,9 @@ Usually I just watch a video on youtube normally, and if there's funny or otherw
 I used to create timestamps manually on notepad or some other note taking app, but I created an app on Android to make this process a lot easier. You can check it out here: [Timestamper]({% post_url 2026-07-07-timestamper-test %})
 
 
+| ![space-1.jpg]({{site.baseurl}}/images/edit-screenshot.png) | 
+|:--:| 
+| *disclaimer: This is my app.* |
 
 
 ## 2. Download the video
