@@ -1,13 +1,11 @@
 ---
 layout: post
 title:  "How to Clip and Subtitle Videos"
-date:   2026-07-03 09:42:21 -0400
+date:   2026-07-08 09:42:21 -0400
 categories: jekyll update
 ---
 
-| ![space-1.jpg]({{site.baseurl}}/images/subtitle-example.png) | 
-|:--:| 
-| *One of my subbed videos* |
+![space-1.jpg]({{site.baseurl}}/images/how-to-sub.png) 
 
 # Background
 I found it really weird that there's not that many guides on how to create subtitles using video editing software (the ones that do exist are just for ai generating subtitles).
