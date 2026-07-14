@@ -65,8 +65,8 @@ Once you have your subtitles timed and ready, you can burn the subtitles in the 
 ```
 ffmpeg -i prores.mov -c:v libx265 -crf 22 -vf subtitles="subtitles.ass" finalh265.mkv
 ```
-
-The output video file will now contain the subtitles you created in step #4.
+At this step you now have a subtitled video.
+If you're wanting to make subtitles in Davinci Resolve instead then keep reading.
 ## 5b. Export the subtitles to Davinci Resolve
 Davinci resolve only supports `.srt` subtitle, while Aegisub files are in the `.ass` format. I've created a handy python script to convert `.ass` subtitles to individual `.srt` files according to their style.
 ```
@@ -145,15 +145,21 @@ if __name__ == "__main__":
 
 For example, if you had two styles, say `Gold Ship` and `Special Week`, they'll be split into `Gold_Ship.srt` and `Special Week.srt`, and then you can individually import them into Davinci Resolve.
 
-## 6. Final Edits
+## 6. Davinci Resolve Text+
 
 | ![space-1.jpg]({{site.baseurl}}/images/davinci.png) | 
 |:--:| 
 | *the same scene above but subs styled in Davinci Resolve* |
 
-In this step I make my final edits, like adding images and applying transitions and video effects.
+The main advantages of creating subtitles in Davinci Resolve is that you can apply effects to `Text+` as if it was a video or image, which lets you do all kinds of effects.
 
-If you decided to create `.srt` subtitles instead, then you would need to convert the subtitle files into `Text+` nodes so you can apply styling. I use the [Snap Captions](https://orsonlord.com/snap-caption-help-guides/snap-captions-help-database/snap-captions-install-guide) script to achieve this.
+<video width="100%" height="auto" controls>
+  <source src="{{site.baseurl}}/images/resolve-wavy.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+I use the [Snap Captions](https://orsonlord.com/snap-caption-help-guides/snap-captions-help-database/snap-captions-install-guide) to convert the `.srt` files into Davinci Resolve's `Text+` nodes.
 
 It's a little annoying if you have multiple styles, since you have to add and apply the script to each style individually. I'd like to create my own script for this eventually though that just does this in one step.
 
