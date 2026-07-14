@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to Clip and Subtitle Videos"
+title:  "How I Clip and Subtitle Videos"
 date:   2026-07-08 09:42:21 -0400
 categories: jekyll update
 ---
@@ -12,9 +12,15 @@ I found it really weird that there's not that many guides on how to create subti
 
 I pretty much had to research this myself, and after a while I've landed on this workflow.
 
+# Table of Contents
+* TOC
+{:toc}
 
-# Guide
-## 1. Find a video you like
+
+
+
+# My Workflow
+## 1. Find a video I like
 Usually I just watch a video on youtube normally, and if there's funny or otherwise important moments, I create timestamps notes so I can refer to them later when editing. 
 
 I used to create timestamps manually on notepad or some other note taking app, but I created an app on Android to make this process a lot easier. You can check it out here: [Timestamper]({% post_url 2026-07-07-timestamper-test %})
@@ -26,15 +32,20 @@ I used to create timestamps manually on notepad or some other note taking app, b
 
 
 ## 2. Download the video
-I used `yt-dlp` to download the video. Here's a sample command below I use.
+I use `yt-dlp` to download the video. Here's a sample command below I use.
 `-f 140+399` downloads the video with mp3 audio and av1 codec for maximum compatibility. 
 ```
 yt-dlp -f 140+399 (youtube_video_url)
 ```
 
 ## 3. Cut down the video
-After downloading the video, open the video in whatever video editing program you like (I use [Davinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve))
+After downloading the video, I then import the video into [Davinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve).
+
 I use my timestamped notes I took in step #1 to create a rough cut on the video and identify parts that I want to actually subtitle.
+
+| ![space-1.jpg]({{site.baseurl}}/images/davinci-resolve-notes.png) | 
+|:--:| 
+| *This is the number of notes / bookmarks I usually take* |
 
 ## 4. Create the subtitles
 
@@ -46,28 +57,28 @@ To create the actual subtitles, I use a program called [Aegisub](https://aegisub
 
 Aegisub is nice because you can configure shortcuts to make adding subtitles fast. It also includes an audio spectrum display which makes distinguishing speakers much easier than normal audio waveforms.
 
-Additionally, you can generate subtitles from your cut down video in the previous step and import them to Aegisub to make timing subtitles easier. I use a [desktop GUI for Whisper](https://github.com/mehtabmahir/easy-whisper-ui) since it can run on my mac.
+Additionally, I generate Japanese videos from the cut down video in the previous step and import them to Aegisub to make timing subtitles easier. I use a [desktop GUI for Whisper](https://github.com/mehtabmahir/easy-whisper-ui) since it can run on my mac.
 
 ## 5. Include the subtitles in the video
-Once you have your subtitles timed and ready, there are two ways to include those subtitles in the video.
+Once you have your subtitles timed and ready, there are two different methods I use to put subtitles into the video.
 
   * **Burn the subtitles directly into the cut video created from step #3.**
   
-  Aegisub is nice because it will automatically move lines that appear at the same time up so they won't overlap each other. However, subtitle effects are limited (if you want to shake your text, wobble it, etc, then do #2)
+  Aegisub is nice because it will automatically move lines that appear at the same time up so they won't overlap each other. However, subtitle effects are limited (only supports shaking text, limited text styling). I use the command below:
+
+```
+ffmpeg -i prores.mov -c:v libx265 -crf 22 -vf subtitles="subtitles.ass" finalh265.mkv
+```
+    
+
+  I stopped doing this method in favor of creating subtitles in Davinci Resolve, but I still sometimes do this if I'm feeling lazy.
 
   * **Export the subtitles into Davinci resolve and style them there.**
 
   Davinci resolve takes longer because you'll have to manually move overlapping lines, but you'll gain the ability to apply various effects to your subtitles.
 
-## 5a. Burn in the subtitles
-Once you have your subtitles timed and ready, you can burn the subtitles in the video using `ffmpeg`. Here's a sample command:
-
-```
-ffmpeg -i prores.mov -c:v libx265 -crf 22 -vf subtitles="subtitles.ass" finalh265.mkv
-```
-At this step you now have a subtitled video.
-If you're wanting to make subtitles in Davinci Resolve instead then keep reading.
-## 5b. Export the subtitles to Davinci Resolve
+## 6. Davinci Resolve
+### Converting `srt` to Davinci Resolve Text+
 Davinci resolve only supports `.srt` subtitle, while Aegisub files are in the `.ass` format. I've created a handy python script to convert `.ass` subtitles to individual `.srt` files according to their style.
 ```
 #!/usr/bin/env python3
@@ -145,12 +156,7 @@ if __name__ == "__main__":
 
 For example, if you had two styles, say `Gold Ship` and `Special Week`, they'll be split into `Gold_Ship.srt` and `Special Week.srt`, and then you can individually import them into Davinci Resolve.
 
-## 6. Davinci Resolve Text+
-
-| ![space-1.jpg]({{site.baseurl}}/images/davinci.png) | 
-|:--:| 
-| *the same scene above but subs styled in Davinci Resolve* |
-
+### Text Effects
 The main advantages of creating subtitles in Davinci Resolve is that you can apply effects to `Text+` as if it was a video or image, which lets you do all kinds of effects.
 
 <video width="100%" height="auto" controls>
@@ -163,12 +169,14 @@ I use the [Snap Captions](https://orsonlord.com/snap-caption-help-guides/snap-ca
 
 It's a little annoying if you have multiple styles, since you have to add and apply the script to each style individually. I'd like to create my own script for this eventually though that just does this in one step.
 
-Once you're done, you now have a subtitled video!
+| ![space-1.jpg]({{site.baseurl}}/images/davinci.png) | 
+|:--:| 
+| *the same scene above but subs styled in Davinci Resolve* |
 
-## 6. Misc
+# Misc Tools
 For thumbnails, I use [Umaviewer](https://github.com/katboi01/UmaViewer) for custom Uma poses and [Affinity Photo](https://www.affinity.studio/photo-editing-software) for photo editing.
 
-## Resources
+# Resources
 * Timestamper App: [https://github.com/hai265/Android-Youtube-Timestamps](https://github.com/hai265/Android-Youtube-Timestamps)
 * Aegisub: [https://aegisub.org/](https://aegisub.org/)
 * Snap Captions (Use 1, not 2): [https://orsonlord.com/](https://orsonlord.com/])
