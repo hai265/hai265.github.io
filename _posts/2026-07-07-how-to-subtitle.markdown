@@ -27,11 +27,6 @@ In order to publish to the Play Store, I'll need testers to test the app over 14
 Usually I just watch a video on youtube normally, and if there's funny or otherwise important moments, I create timestamps notes so I can refer to them later when editing. 
 
 
-| ![space-1.jpg]({{site.baseurl}}/images/edit-screenshot.png) | 
-|:--:| 
-| *disclaimer: This is my app.* |
-
-
 ## 2. Download the video
 I use `yt-dlp` to download the video. Here's a sample command below I use.
 `-f 140+399` downloads the video with mp3 audio and av1 codec for maximum compatibility. 
