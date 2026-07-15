@@ -167,7 +167,7 @@ It's a little annoying if you have multiple styles, since you have to add and ap
 
 | ![space-1.jpg]({{site.baseurl}}/images/davinci.png) | 
 |:--:| 
-| *the same scene above but subs styled in Davinci Resolve* |
+| *Each Text+ style is on a separate track* |
 
 ### Text with Icon
 The main reason I use Davinci Resolve is that I'm able to create subtitles with an image attached to it to make the speaker easier to identify.
