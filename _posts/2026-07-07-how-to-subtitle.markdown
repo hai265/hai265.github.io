@@ -1,29 +1,30 @@
 ---
 layout: post
 title:  "How I Clip and Subtitle Videos"
-date:   2026-07-08 09:42:21 -0400
+date:   2026-07-15 09:42:21 -0400
 categories: jekyll update
 ---
 
-![space-1.jpg]({{site.baseurl}}/images/how-to-sub.png) 
+# Timestamper App (Self-Promotion)
+I created this timestamping app to help me with my videos, and I've decided to release it to the public!
+In order to publish to the Play Store, I'll need testers to test the app over 14 days. 
+
+[If you're interested, then check out this blog post for information on how to join.]({% post_url 2026-07-07-timestamper-test %})
+
+| ![space-1.jpg]({{site.baseurl}}/images/edit-screenshot.png) | 
+|:--:| 
+| *disclaimer: This is my app.* |
 
 # Background
-I found it really weird that there's not that many guides on how to create subtitles using video editing software (the ones that do exist are just for ai generating subtitles).
-
-I pretty much had to research this myself, and after a while I've landed on this workflow.
+![space-1.jpg]({{site.baseurl}}/images/how-to-sub.png) 
 
 # Table of Contents
 * TOC
 {:toc}
 
-
-
-
 # My Workflow
 ## 1. Find a video I like
 Usually I just watch a video on youtube normally, and if there's funny or otherwise important moments, I create timestamps notes so I can refer to them later when editing. 
-
-I used to create timestamps manually on notepad or some other note taking app, but I created an app on Android to make this process a lot easier. You can check it out here: [Timestamper]({% post_url 2026-07-07-timestamper-test %})
 
 
 | ![space-1.jpg]({{site.baseurl}}/images/edit-screenshot.png) | 
