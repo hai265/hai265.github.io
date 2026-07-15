@@ -173,6 +173,33 @@ It's a little annoying if you have multiple styles, since you have to add and ap
 |:--:| 
 | *the same scene above but subs styled in Davinci Resolve* |
 
+### Text with Icon
+The main reason I use Davinci Resolve is that I'm able to create subtitles with an image attached to it to make the speaker easier to identify.
+
+| ![space-1.jpg]({{site.baseurl}}/images/icon-fusion.png) | 
+|:--:| 
+| *Text+ w/ Icon Fusion Setup* |
+
+The main logic driving this is in the `Merge` node.
+
+```
+Point(Text1.Output.DataWindow[1]/Text1.Output.OriginalWidth,
+    ((Text1.Output.DataWindow[2] + Text1.Output.DataWindow[4]) / 2) / Text1.Output.OriginalHeight)
+```
+
+I'm not exactly sure what this does, since I copied this from some forum somewhere, but this moves the icon according to the length of `Text` to keep the image to the left.
+
+| ![space-1.jpg]({{site.baseurl}}/images/short-text-icon.png) | 
+| ![space-1.jpg]({{site.baseurl}}/images/long-text-icon.png) | 
+|:--:| 
+| *Icon moves left with the text* |
+
+
+## 7. Areas Of Improvement
+The most annoying part about Davinci Resolve that it's not possible to change the style of multiple Text+ nodes, so I have to decide what each text style looks like beforehand, and if I want to change something, then I have to do it for each individual `Text+` node.
+
+I've explored Adobe Premiere and it seems possible to apply a text style across multiple instances, but I haven't found a way to do to achieve the icon w/ text yet. I'm 90% sure it's possible since I'm pretty sure the official Pakatube channel edits with Adobe Premiere and they have Text with icons. If anyone knows how to do this in Adobe then let me know please!
+
 # Misc Tools
 For thumbnails, I use [Umaviewer](https://github.com/katboi01/UmaViewer) for custom Uma poses and [Affinity Photo](https://www.affinity.studio/photo-editing-software) for photo editing.
 
